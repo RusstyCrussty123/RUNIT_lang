@@ -10,7 +10,7 @@ const RUNIT = {
 };
 
 RUNIT.isNumber = function(str){
-    if (parseInt(str)!=NaN) {
+    if (!isNan(parseInt(str))) {
         return parseInt(str);
     }else{
         return str;
@@ -56,23 +56,23 @@ RUNIT.compile = function(code){
     
                 switch (word) {
                     case "MOVE":
-                        position+=nextNum;
+                        RUNIT.position+=nextNum;
                         break;
                     case "PUSH":
                         RUNIT.array.push(nextNum);
                         break;
                     case "ADD":
-                        RUNIT.array[position]+=nextNum;
+                        RUNIT.array[RUNIT.position]+=nextNum;
                         break;
                     case "LOOP":
                         for (let v=0; v<nextNum; v++) RUNIT.compile(line.slice(i+1).join(" "));
                         break;
                     case "PRINT":
-                        print(RUNIT.array[position]);
+                        print(RUNIT.array[RUNIT.position]);
                         break;
                     case "CLEAR":
                         RUNIT.array=[];
-                        position=0;
+                        RUNIT.position=0;
                         print("cleared");
                         break;
                     case "IF=":
@@ -80,7 +80,7 @@ RUNIT.compile = function(code){
                         print(is.toString());
                         break;
                     case "DELAY":
-                        RUNIT.delay=RUNIT.array[position];
+                        RUNIT.delay=RUNIT.array[RUNIT.position];
                         break;
                     case "ID":
                         print(next);
@@ -93,5 +93,6 @@ RUNIT.compile = function(code){
         }
     }
 };
+
 
 RUNIT.print("RUNIT.js successfully loaded! Start with running some code through compiler. (RUNIT.compiler(src))");
