@@ -1,5 +1,5 @@
 # RUNIT_lang
-Weird language written in js
+Weird not language written in js
 
 ```js
 RUNIT.compile("Put your source code here")
