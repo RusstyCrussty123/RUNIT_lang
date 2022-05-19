@@ -1,5 +1,5 @@
 # RUNIT
-Weird **NOT** language written in js
+This is experimental.
 -esolang
 ```js
 RUNIT.compile("Put your source code here")
