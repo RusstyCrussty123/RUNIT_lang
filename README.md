@@ -1,6 +1,5 @@
 # RUNIT
-This is experimental.
--esolang
+This is an experimental esolang
 ```js
 RUNIT.compile("Put your source code here")
 //Example:
